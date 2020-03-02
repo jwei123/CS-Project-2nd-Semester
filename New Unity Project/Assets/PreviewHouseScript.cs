@@ -11,15 +11,41 @@ public class PreviewHouseScript : MonoBehaviour
     void Start() {
         housePlacing = false;
     }
-
-    // Update is called once per frame
     void Update() {
-        if (Input.GetMouseButtonDown(/******left mouse********/)) {
-            Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
+        Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+        if (Input.GetMouseButtonDown(0)) {
+            cout("b");
             if (Physics.Raycast(ray, out hitInfo)) {
-
+                cout("c");
+                if (hitInfo.collider.gameObject.CompareTag("Preview House")) {
+                    housePlacing = !housePlacing;
+                    cout("d");
+                }
+                else if (hitInfo.collider.gameObject.CompareTag("Ground")) {
+                    cout("e");
+                    if (housePlacing) {
+                        cout("f");
+                        GameObject newHouse = Instantiate(PlacedHouse);
+                        newHouse.transform.position = hitInfo.point;
+                        housePlacing = false;
+                    }
+                }
             }
         }
+        else if (Input.GetMouseButtonDown(1)) {
+            housePlacing = false;
+        }
+        if (Physics.Raycast(ray, out hitInfo)) {
+            if (hitInfo.collider.gameObject.CompareTag("Ground")) {
+                if (housePlacing) {
+                    TransparentHouse.transform.position = hitInfo.point;
+                }
+            }
+        }
+        TransparentHouse.SetActive(housePlacing);
+    }
+    private void cout(string input) {
+        Debug.Log(input);
     }
 }

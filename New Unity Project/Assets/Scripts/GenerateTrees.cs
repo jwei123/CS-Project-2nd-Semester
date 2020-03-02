@@ -5,7 +5,6 @@ using UnityEngine;
 public class GenerateTrees : MonoBehaviour
 {
     public GameObject treePrefab;
-    public Transform treeParent;
 
     public float terrainWidth = 500;
     public float treeSpacing = 20;
@@ -18,7 +17,7 @@ public class GenerateTrees : MonoBehaviour
             for(float z = 0; z < terrainWidth; z += treeSpacing)
             {
                 GameObject newTree = Instantiate(treePrefab);
-                newTree.transform.SetParent(treeParent);
+                newTree.transform.SetParent(transform);
                 newTree.transform.position = new Vector3(transform.position.x + x, 0, transform.position.z + z);
             }
             

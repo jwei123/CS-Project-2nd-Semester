@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5978820687435606807}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5978820687653521281}
@@ -125,6 +125,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 4701453526828403704, guid: cb5b9c78b1df1cc41beebf032f460258,
     type: 3}
-  treeParent: {fileID: 5978820687435606804}
   terrainWidth: 500
   treeSpacing: 20

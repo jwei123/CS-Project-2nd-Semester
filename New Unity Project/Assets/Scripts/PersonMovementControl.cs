@@ -17,7 +17,7 @@ public class PersonMovementControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(running == false)
         {

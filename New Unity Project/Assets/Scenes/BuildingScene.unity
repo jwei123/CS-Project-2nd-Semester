@@ -113,11 +113,14 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &306014355
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 --- !u!1001 &473358406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +182,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8b5c84f54f3c88f4b81e7c1faa87d65f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
+=======
 >>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 --- !u!1 &1154182669
 GameObject:
@@ -262,6 +268,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 72.492004, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
@@ -523,6 +530,8 @@ CapsuleCollider:
   m_Center: {x: 0.8553324, y: -0.5085039, z: 3.0919085}
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 --- !u!1001 &1396781812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,6 +589,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
+=======
 >>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 --- !u!1 &1958861923
 GameObject:
@@ -666,9 +678,13 @@ GameObject:
   m_Layer: 0
   m_Name: Plane
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
   m_TagString: Ground
+=======
+  m_TagString: Untagged
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 =======
   m_TagString: Untagged
 >>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
@@ -813,6 +829,7 @@ PrefabInstance:
 >>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &2825891418571485259
 PrefabInstance:
@@ -990,5 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1cdcc2987f18c4bb9e59cf972d7c8c, type: 3}
+=======
+>>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other
 =======
 >>>>>>> parent of f387818... worked on stuff, now you can't build houses on top of each other

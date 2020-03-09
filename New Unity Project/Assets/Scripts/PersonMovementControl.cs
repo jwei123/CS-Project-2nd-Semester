@@ -19,14 +19,44 @@ public class PersonMovementControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // MAKE Sure that you set a radiusmovement range for the spawning of the people!!
+        float dist = nav.remainingDistance;
         if(running == false)
         {
-            nav.SetDestination(new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y, transform.position.z + Random.Range(-2f, 2f)));
+
+            Vector3 newDest = new Vector3(transform.localPosition.x + Random.Range((-1 * radiusMovementRange), radiusMovementRange), transform.localPosition.y, transform.localPosition.z + Random.Range((-1*radiusMovementRange), radiusMovementRange));
+            if(Mathf.Abs(newDest.x )- Mathf.Abs(spawnPosition.x)  >= radiusMovementRange)
+            {
+                if(newDest.x    >= 0)
+                {
+                    newDest.x = spawnPosition.x + radiusMovementRange;
+                }
+                else
+                {
+                    newDest.x = -1 * (spawnPosition.x + radiusMovementRange);
+                }
+                
+            }
+            if (Mathf.Abs(newDest.z) - Mathf.Abs(spawnPosition.z) >= radiusMovementRange)
+            {
+                if (newDest.z >= 0)
+                {
+                    newDest.z = spawnPosition.z + radiusMovementRange;
+                }
+                else
+                {
+                    newDest.z = -1 * (spawnPosition.z + radiusMovementRange);
+                }
+
+            }
+            nav.SetDestination(newDest);
+
             running = true;
         }
-        if(nav.isStopped == true)
+        if(dist == 0 || nav.velocity.sqrMagnitude == 0f )
         {
             running = false;
         }
     }
+
 }

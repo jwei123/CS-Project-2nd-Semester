@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nav: {fileID: 2256418546232469767}
-  radiusMovementRange: 0
+  radiusMovementRange: 5
 --- !u!1 &2920019525642700832
 GameObject:
   m_ObjectHideFlags: 0

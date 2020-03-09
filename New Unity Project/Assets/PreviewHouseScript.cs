@@ -7,8 +7,6 @@ public class PreviewHouseScript : MonoBehaviour
     public Camera gameCamera;
     public GameObject TransparentHouse;
     public GameObject PlacedHouse;
-    public Texture GrayscaleHouse;
-    public Texture RedHouse;
     private bool housePlacing;
     void Start() {
         housePlacing = false;
@@ -17,12 +15,17 @@ public class PreviewHouseScript : MonoBehaviour
         Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
         if (Input.GetMouseButtonDown(0)) {
+            cout("b");
             if (Physics.Raycast(ray, out hitInfo)) {
+                cout("c");
                 if (hitInfo.collider.gameObject.CompareTag("Preview House")) {
                     housePlacing = !housePlacing;
+                    cout("d");
                 }
                 else if (hitInfo.collider.gameObject.CompareTag("Ground")) {
+                    cout("e");
                     if (housePlacing) {
+                        cout("f");
                         GameObject newHouse = Instantiate(PlacedHouse);
                         newHouse.transform.position = hitInfo.point;
                         housePlacing = false;
@@ -33,7 +36,7 @@ public class PreviewHouseScript : MonoBehaviour
         else if (Input.GetMouseButtonDown(1)) {
             housePlacing = false;
         }
-        if (Physics.Raycast(ray, out hitInfo, 1 << 9)) {
+        if (Physics.Raycast(ray, out hitInfo)) {
             if (hitInfo.collider.gameObject.CompareTag("Ground")) {
                 if (housePlacing) {
                     TransparentHouse.transform.position = hitInfo.point;
@@ -41,5 +44,8 @@ public class PreviewHouseScript : MonoBehaviour
             }
         }
         TransparentHouse.SetActive(housePlacing);
+    }
+    private void cout(string input) {
+        Debug.Log(input);
     }
 }

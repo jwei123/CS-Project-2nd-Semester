@@ -112,6 +112,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1076906381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_Name
+      value: Grayscale House
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9563fc60b8d5ef41895897ae8ca8a9a, type: 3}
 --- !u!1 &1154182669
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +332,24 @@ PrefabInstance:
       propertyPath: PlacedHouse
       value: 
       objectReference: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 3}
+    - target: {fileID: 5771064638357019739, guid: 3c1cdcc2987f18c4bb9e59cf972d7c8c,
+        type: 3}
+      propertyPath: TransparentHouse
+      value: 
+      objectReference: {fileID: 1653718013}
+    - target: {fileID: 5771064638357019739, guid: 3c1cdcc2987f18c4bb9e59cf972d7c8c,
+        type: 3}
+      propertyPath: Layer9Only.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1cdcc2987f18c4bb9e59cf972d7c8c, type: 3}
+--- !u!1 &1653718013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: f9563fc60b8d5ef41895897ae8ca8a9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1076906381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1958861923
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,9 +431,9 @@ GameObject:
   - component: {fileID: 2003758670}
   - component: {fileID: 2003758669}
   - component: {fileID: 2003758668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003758667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6653318, y: -1.7678661, z: 4.81}
+  m_LocalPosition: {x: -1.6653318, y: 0, z: 4.81}
   m_LocalScale: {x: 4.303, y: 1, z: 4.1603}
   m_Children: []
   m_Father: {fileID: 0}

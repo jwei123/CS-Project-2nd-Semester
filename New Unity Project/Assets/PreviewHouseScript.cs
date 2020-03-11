@@ -9,8 +9,10 @@ public class PreviewHouseScript : MonoBehaviour
     public GameObject PlacedHouse;
     public LayerMask Layer9Only;
     private bool housePlacing;
+    private int houseRotation;
     void Start() {
         housePlacing = false;
+        houseRotation = 0;
     }
     void Update() {
         Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
@@ -29,7 +31,9 @@ public class PreviewHouseScript : MonoBehaviour
                             cout("f");
                             GameObject newHouse = Instantiate(PlacedHouse);
                             newHouse.transform.position = hitInfo.point;
+                            newHouse.transform.rotation = TransparentHouse.transform.rotation;
                             housePlacing = false;
+                            ChangeHouseRotation(-houseRotation);
                         }
                     }
                 }
@@ -37,6 +41,16 @@ public class PreviewHouseScript : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1)) {
             housePlacing = false;
+        }
+        if (Input.GetButtonDown("Fire2") && housePlacing) {
+            /*houseRotation += 30;
+            TransparentHouse.transform.rotation = Quaternion.Euler(new Vector3(0, 30, 0)) * TransparentHouse.transform.rotation;*/
+            ChangeHouseRotation(30);
+        }
+        if (Input.GetButtonDown("Fire3") && housePlacing) {
+            /*houseRotation -= 30;
+            TransparentHouse.transform.rotation = Quaternion.Euler(new Vector3(0, -30, 0)) * TransparentHouse.transform.rotation;*/
+            ChangeHouseRotation(-30);
         }
         if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, Layer9Only)) {
             if (housePlacing) {
@@ -47,5 +61,9 @@ public class PreviewHouseScript : MonoBehaviour
     }
     private void cout(string input) {
         Debug.Log(input);
+    }
+    private void ChangeHouseRotation(int change) {
+        houseRotation += change;
+        TransparentHouse.transform.rotation = Quaternion.Euler(new Vector3(0, change, 0)) * TransparentHouse.transform.rotation;
     }
 }

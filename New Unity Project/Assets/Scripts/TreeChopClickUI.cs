@@ -24,7 +24,11 @@ public class TreeChopClickUI : MonoBehaviour
         //if it hit something, set the destination to the ray hit area
         if (Physics.Raycast(ray, out hit))
         {
-            transform.GetComponent<CutTrees>().cutDownTrees(hit.point, 20);
+            transform.GetComponent<CutTrees>().highlightTrees(hit.point, 20);
+            if(Input.GetMouseButton(0))
+            {
+                transform.GetComponent<CutTrees>().markTreeToChop(hit.point, 20);
+            }
         }
         //when mouse is clicked, "chop" trees using CutTrees script
         //hide the highlight otherwise

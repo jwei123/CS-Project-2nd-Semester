@@ -15,4 +15,21 @@ public class mainmenu : MonoBehaviour
         Application.Quit();
         print("Quit Game");
     }
+    public void InGameSettings()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //Need something that pauses all progress when clicked
+    }
+    public void BackToGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void SaveGame()
+    {
+
+    }
 }

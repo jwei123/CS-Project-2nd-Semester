@@ -1,14 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CutTrees : MonoBehaviour
 {
     public float woodAmount = 0; //Fix later with connection to resource bar. Right now we are assuming one tree = one piece of wood
     public Material treeGreen, treeHighlight;
-    public int numPeopleAssignedToChopTrees; //this is up here because it might get changed from other scripts. I might want to set it to grab some number in the update void.
+    public int numPeopleAssignedToChopTrees = 5; //this is up here because it might get changed from other scripts. I might want to set it to grab some number in the update void.
 
-    
+    double timer = 0f;
+    //how many to chop each frame, how many we've chopped this frame, and whether we should chop trees at all
+    float amountToChop;
+    float treesChopped;
+    bool timeToChopTrees;
+
+    void Update()
+    {
+        //each frame, get a new list of trees to chop down
+        GameObject[] treesToChop = GameObject.FindGameObjectsWithTag("MarkedForChopping");
+
+        timeToChopTrees = timer >= 1; //if it's been more than a second
+
+        //only chop trees if it's time to do so
+        if (timeToChopTrees) {
+
+            treesChopped = 0;
+            amountToChop = AmtCompletedPerUnitTime(numPeopleAssignedToChopTrees, 5, 1);
+            treesToChop = GameObject.FindGameObjectsWithTag("MarkedForChopping");
+
+            //if we are chopping trees, just go through the trees in order
+            foreach (GameObject i in treesToChop)
+            {
+                //only cut the right amount of trees, and you can't cut down nonexistant trees
+                if (treesChopped <= amountToChop && treesToChop.Length > 0)
+                {
+                    Destroy(i);
+                    woodAmount++;
+                    treesChopped++;
+                }
+                else { break; }
+
+            }
+        }
+
+        timer += Time.deltaTime;
+
+    }
+
     //find trees within some radius. Use them for whatever.
     public List<GameObject> findTreesInRadius(Vector3 location, float radius)
     {
@@ -38,6 +77,13 @@ public class CutTrees : MonoBehaviour
         }
     }
 
+    //Generally, timeInterval will be in seconds. But whatever I don't really care.
+    //This function calculates how much of some task is completed in some time interval. This is more useful than total time, because the number of people working may fluctate.
+    public float AmtCompletedPerUnitTime(int numPeopleAssignedToTask, float difficulty, float timeInterval)
+    {
+        return numPeopleAssignedToTask / difficulty * timeInterval;
+    }
+
     /************************************Probably don't need this*******************************************************/
     //To make more efficient, store the last few trees that were highlighted and just revert those colors
     public void highlightTrees(Vector3 location, float radius)
@@ -59,44 +105,9 @@ public class CutTrees : MonoBehaviour
         }
     }
 
-    //destroy the trees in some radius
-    //What should this do? Cutting one tree = destroy + add to woodAmount
-    //Cut down all trees in some list? That would be cutting down all marked trees
-    /*Eventually, some trees should get cut down as a function of how many tree cutters there are. So should this be that function? 
-     * I want a more general function for tasks...Like, how much of this should be done per minute, and it should change when people are reassigned */
-     //Okay, this function cuts down some of the trees...
-    public void cutDownTrees()
-    {
-        GameObject[] treesToChop = GameObject.FindGameObjectsWithTag("MarkedForChopping");
+    
 
-        float amountToChop = AmtCompletedPerUnitTime(numPeopleAssignedToChopTrees, 5, 1);
-        float treesChopped = 0;
-        //While there are still trees to chop, chop some number of trees every second...
-        while(treesToChop.Length > 0)
-        {
-            //if (timeToChopTrees)
-            treesToChop = GameObject.FindGameObjectsWithTag("MarkedForChopping");
-            foreach (GameObject i in treesToChop)
-            {
-                if (treesChopped <= amountToChop)
-                {
-                    Destroy(i);
-                    woodAmount++;
-                    treesChopped++;
-                }
-                else { break; }
-
-            }
-        }
-        
-    }
-
-    //Generally, timeInterval will be in seconds. But whatever I don't really care.
-    //This function calculates how much of some task is completed in some time interval. This is more useful than total time, because the number of people working may fluctate.
-    public float AmtCompletedPerUnitTime(int numPeopleAssignedToTask, float difficulty, float timeInterval)
-    {
-        return numPeopleAssignedToTask/difficulty*timeInterval;
-    }
+    
 
     
     
